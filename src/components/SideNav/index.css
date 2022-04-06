@@ -9,12 +9,12 @@
 
 :root{
     /* ===== Colors ===== */
-    --body-color: #E4E9F7;
-    --sidebar-color: #FFF;
-    --primary-color: #695CFE;
-    --primary-color-light: #F6F5FF;
-    --toggle-color: #DDD;
-    --text-color: #707070;
+    --body-color: #fff;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -25,7 +25,7 @@
 
 body{
     min-height: 100vh;
-    background-color: var(--body-color);
+    background-color: #e4e9f7 !important;
     transition: var(--tran-05);
 }
 
@@ -61,12 +61,6 @@ body.dark{
     opacity: 0.75;
 }
 
-.sidebar.open{
-    /* width: 88px; */
-    background: #000 !important;
-    /* opacity: 0.75; */
-}
-
 /* ===== Reusable code - Here ===== */
 .sidebar li{
     height: 50px;
@@ -85,15 +79,11 @@ body.dark{
 .sidebar .icon{
     min-width: 60px;
     border-radius: 6px;
-    height: 100%;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-}
-.home-icon {
-    min-width: 60px;
-    border-radius: 6px;
+    font-size: 10px;
 }
 
 .sidebar .text,
@@ -159,7 +149,8 @@ header .image-text .profession{
     height: 25px;
     width: 25px;
     background-color: var(--primary-color);
-    color: var(--sidebar-color);
+    color: #ccc;
+    padding-left: 5px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -167,6 +158,7 @@ header .image-text .profession{
     font-size: 22px;
     cursor: pointer;
     transition: var(--tran-05);
+
 }
 
 body.dark .sidebar header .toggle{
@@ -306,11 +298,14 @@ body.dark .switch::before{
     top: 0;
     top: 0;
     left: 250px;
-    height: 100vh;
     width: calc(100% - 250px);
-    background-color: var(--body-color);
+    background-color: #e4e9f7;
     transition: var(--tran-05);
 }
+.section{
+    height: -webkit-fill-available;
+}
+
 .home .text{
     font-size: 2.5vw;
     font-weight: 500;
@@ -320,9 +315,14 @@ body.dark .switch::before{
 
 .sidebar.close ~ .home{
     left: 78px;
-    height: 100vh;
     width: calc(100% - 78px);
+    background-color: #e4e9f7 ;
+    /* height: -webkit-fill-available; */
 }
+.sidebar.close ~ .section{
+    height: -webkit-fill-available;
+}
+
 body.dark .home .text{
     color: #212529;
 }
@@ -349,3 +349,18 @@ body.dark .home .text{
     }
 }
 
+.menu_links{
+  padding-left: 0 !important;
+}
+
+.btn-falcon-primary {
+    color: #2c7be5 !important;
+    background-color: #fff;
+    border-color: #fff;
+    -webkit-box-shadow: var(--falcon-btn-falcon-box-shadow);
+    box-shadow: 0 0 0 1px rgba(43, 45, 80, 0.1);
+}
+
+.me-1{
+    margin-right: 0.25rem !important;
+}
