@@ -1,0 +1,26 @@
+.color_hr{
+    border-top: 1px solid #cccccc;
+}
+
+.stimulation-title{
+    font-size: 2vw;
+}
+
+.stimulation-subtitle{
+    font-size: 1.5vw;
+}
+
+.small-text{
+    font-size: 0.75vw;
+}
+
+@media only screen and (max-width : 600px){
+    
+    .previous-app img{
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+        margin: 0 2px;
+    }
+}
+

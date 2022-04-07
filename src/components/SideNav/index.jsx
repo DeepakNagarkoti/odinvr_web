@@ -3,6 +3,7 @@ import './index.css';
 import {FaChevronRight} from "react-icons/fa";
 import {AiOutlineDashboard} from 'react-icons/ai';
 import {MdLogout} from 'react-icons/md';
+import logo from '../../assets/jendamark.png';
 
 const SideNav = () => {
     const [close,setClose] = useState("close");
@@ -17,7 +18,8 @@ const SideNav = () => {
             <header>
                 <div className='image-text'>
                     <span className='image'>
-                        <img></img>
+                        <img src={logo} alt={"logo"}></img>
+                        {/* <img src="../../src/assets/jendamark.png"></img> */}
                     </span>
                     <div className='text logo-text'>
                         <span className='name'>
