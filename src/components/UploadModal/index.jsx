@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
 import { Modal } from "react-bootstrap";
 
 const UploadModal = (props) =>{
@@ -8,8 +7,8 @@ const UploadModal = (props) =>{
     const {modalShow,setModalShow,heading} = props;
 
     return (
-        <Modal show={modalShow} onHide={setModalShow(false)} className="my-auto">
-        <Modal.Header closeButton className="text-center">
+        <Modal show={modalShow} onHide={setModalShow(false)} className="my-auto margin-top">
+        <Modal.Header closeButton>
             <Modal.Title className="text-center">
                 <h4>{heading}</h4>
             </Modal.Title>

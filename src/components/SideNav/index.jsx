@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './index.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {FaChevronRight} from "react-icons/fa";
 import {AiOutlineDashboard} from 'react-icons/ai';
 import {MdLogout} from 'react-icons/md';
@@ -30,7 +31,7 @@ const SideNav = () => {
                         </span>
                     </div>
                 </div>
-                <FaChevronRight className='toggle toggle-icon' onClick = {() => toggleBtn()}/>
+                <FaChevronRight className='toggle toggle-icon text-light' onClick = {() => toggleBtn()}/>
             </header>
             <div className='menu-bar'>
                 <div className='menu'>
