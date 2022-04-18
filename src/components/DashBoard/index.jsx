@@ -4,10 +4,12 @@ import SideNav from "../SideNav";
 import TitleCard from "../TitleCard"
 import AppCard from "../AppCard";
 import UploadModal from "../UploadModal";
+import AppDetail from "../AppDetails";
+import { Link,useRouteMatch } from "react-router-dom";
 const Dashboard = () => {
-
+    //let match = useRouteMatch();
     const [modalShow,setModalShow] = useState(false);
-
+ 
     return (
         <Fragment>
             <SideNav />
@@ -26,7 +28,9 @@ const Dashboard = () => {
                         </div>
                         <div className="row previous-app mx-0 mt-4">
                             <div className="col-sm-4 mb-4">
-                                <AppCard />
+                                <Link to={`/appDetails`}>
+                                    <AppCard />
+                                </Link>
                             </div>
                         </div>
                     </div>

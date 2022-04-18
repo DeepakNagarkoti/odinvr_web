@@ -5,10 +5,11 @@ import '../SideNav/index.css';
 import {BsStarFill, BsStarHalf} from 'react-icons/bs';
 import imgLogo from '../../assets/Screenshot.png';
 
-const AppCard = () =>{
+const AppCard = (props) =>{
+
     return(
         <Fragment>
-            <div className="card w-auto">
+            <div className="card w-auto cursor" >
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-12 col-6">

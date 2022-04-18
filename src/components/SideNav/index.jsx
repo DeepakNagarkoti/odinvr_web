@@ -37,7 +37,7 @@ const SideNav = () => {
                 <div className='menu'>
                     <ul className='menu_links'>
                         <li className='nav_link'>
-                            <a href='#' className="active">
+                            <a href='/' className="active">
                                 <AiOutlineDashboard className='icon'/>
                                 <span className='text nav-text'>Dashboard</span>
                             </a>
