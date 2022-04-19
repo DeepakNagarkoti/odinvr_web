@@ -9,6 +9,10 @@ import { Link,useRouteMatch } from "react-router-dom";
 const Dashboard = () => {
     //let match = useRouteMatch();
     const [modalShow,setModalShow] = useState(false);
+    
+    const modalShowCallBack = () => {
+        setModalShow(false)
+    }
  
     return (
         <Fragment>
@@ -36,7 +40,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <UploadModal modalShow={modalShow} heading="Upload Simulation" setModalShow={() => setModalShow}/>
+            <UploadModal modalShow={modalShow} heading="Upload Simulation" modalShowCallBack={modalShowCallBack}/>
         </Fragment>
     );
 }

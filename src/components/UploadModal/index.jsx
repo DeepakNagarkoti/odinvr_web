@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
+import React from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from "react-bootstrap";
 
 const UploadModal = (props) =>{
 
-    const {modalShow,setModalShow,heading} = props;
+    const {modalShow,modalShowCallBack,heading} = props;
 
     return (
-        <Modal show={modalShow} onHide={setModalShow(false)} className="my-auto margin-top">
+        <Modal show={modalShow} onHide={modalShowCallBack} className="my-auto margin-top">
         <Modal.Header closeButton>
             <Modal.Title className="text-center">
                 <h4>{heading}</h4>
@@ -39,8 +39,8 @@ const UploadModal = (props) =>{
             </form>
         </Modal.Body>
         <Modal.Footer>
-            <button className="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-            <button className="btn btn-primary" type="button" >Save </button>
+            <button className="btn btn-secondary" type="button" data-bs-dismiss="modal" onClick={modalShowCallBack}>Close</button>
+            <button className="btn btn-primary" type="button" onClick={modalShowCallBack}>Save </button>
         </Modal.Footer>
     </Modal>
     );
