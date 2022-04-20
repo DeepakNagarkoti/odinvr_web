@@ -7,6 +7,8 @@ import imgLogo from '../../assets/Screenshot.png';
 
 const AppCard = (props) =>{
 
+    const {title,subtitle,stars,reviews,key} = props;
+    console.log(title,subtitle,stars,reviews,key);
     return(
         <Fragment>
             <div className="card w-auto cursor" >
@@ -17,8 +19,8 @@ const AppCard = (props) =>{
                         </div>
                         <div className="col-sm-12 col-6 d-md-none previous-app-text">
                             <div className="row d-block">
-                                <h5 className="card-title stimulation-title text-light-50 pt-3">CSIR</h5>
-                                <h6 className="card-subtitle stimulation-subtitle text-light-50 text-muted ">By JendaMark</h6>
+                                <h5 className="card-title stimulation-title text-light-50 pt-3">{title}</h5>
+                                <h6 className="card-subtitle stimulation-subtitle text-light-50 text-muted ">{subtitle}</h6>
                             </div>
                             <div className="row">
                                 <div className="previous-app-text-md">
@@ -29,7 +31,7 @@ const AppCard = (props) =>{
                                         <BsStarFill className="text-warning"/>
                                         <BsStarHalf className="text-warning"/>
                                         <br/>
-                                        <span className="text-muted" >240 Reviews</span>
+                                        <span className="text-muted" >{reviews + " Reviews"}</span>
                                     </p>
                                 </div>
                             </div>
@@ -38,10 +40,10 @@ const AppCard = (props) =>{
                     <div className="row d-none d-md-flex">
                         <div className="previous-app-text-md mx-3">
                             <h5 className="card-title previous-stimulation-title text-light-50 pt-3">
-                                CSIR
+                                {title}
                             </h5>
                             <h6 className="card-subtitle previous--stimulation-subtitle text-light-50 text-muted ">
-                                By JendaMark
+                                {subtitle}
                             </h6>
                         </div>
                     </div>
@@ -54,7 +56,7 @@ const AppCard = (props) =>{
                                 <BsStarFill className="text-warning"/>
                                 <BsStarHalf className="text-warning"/>
                                 <br/>
-                                <span className="text-muted" >240 Reviews</span>
+                                <span className="text-muted" >{reviews + " Reviews"}</span>
                             </p>
                         </div>
                     </div>
