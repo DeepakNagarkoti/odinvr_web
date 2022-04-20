@@ -5,6 +5,7 @@ import {FaChevronRight} from "react-icons/fa";
 import {AiOutlineDashboard} from 'react-icons/ai';
 import {MdLogout} from 'react-icons/md';
 import logo from '../../assets/jendamark.png';
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
     const [close,setClose] = useState("close");
@@ -37,19 +38,24 @@ const SideNav = () => {
                 <div className='menu'>
                     <ul className='menu_links'>
                         <li className='nav_link'>
-                            <a href='/' className="active">
-                                <AiOutlineDashboard className='icon'/>
-                                <span className='text nav-text'>Dashboard</span>
-                            </a>
+                            <Link to={"/"}>
+                                <a className="active">
+                                    <AiOutlineDashboard className='icon'/>
+                                    <span className='text nav-text'>Dashboard</span>
+                                </a>
+                            </Link>
+                            
                         </li>
                     </ul>
                 </div>
                 <div className="bottom-content">
                     <li>
-                        <a href='#'>
-                            <MdLogout className='icon'/>
-                            <span className='text nav-text'>Logout</span>
-                        </a>
+                        <Link to={"/login"}>
+                            <a href='#'>
+                                <MdLogout className='icon'/>
+                                <span className='text nav-text'>Logout</span>
+                            </a>
+                        </Link>
                     </li>
                 </div>
             </div>

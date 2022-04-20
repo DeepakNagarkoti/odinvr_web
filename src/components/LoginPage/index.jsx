@@ -3,6 +3,7 @@ import '../LoginPage/index.css';
 import vrImage from '../../assets/vr-bg.png';
 import avatar from '../../assets/avatar.svg';
 import {FaUser,FaLock} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
 
@@ -42,8 +43,10 @@ const LoginPage = () => {
               </div>
             </div>
             <a href="" className="attr">Forgot Password?</a>
-
-            <button className="btn-login" type="submit">Login</button>
+            <Link to={"/"}>
+              <button className="btn-login" type="submit">Login</button>
+            </Link>
+            
             <div className="row">
               <a className="pointer attr" onClick={() => changeLogin()}>Sign up now</a>
             </div>
