@@ -1,17 +1,35 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import '../SideNav/index.css';
-import {BsStarFill, BsStarHalf} from 'react-icons/bs';
+import {BsStarFill, BsStarHalf, BsStar} from 'react-icons/bs';
 import imgLogo from '../../assets/Screenshot.png';
 
 const AppCard = (props) =>{
 
     const {title,subtitle,stars,reviews,key} = props;
-    console.log(title,subtitle,stars,reviews,key);
+    const [reviewStar,setReviewStar] = useState("");
+    var starCount = parseFloat(stars);
+    //console.log(title,subtitle,starCount,reviews);
+    // const printReviewStar = (n) =>{
+    //     for(var i=0;i<5;i++){
+    //         if(n>0.5){
+    //             setReviewStar(reviewStar + `<BsStarFill className="text-warning"/>`);
+    //         }
+    //         else if(n === 0.5){
+    //             setReviewStar(reviewStar + `<BsStarHalf className="text-warning"/>`);
+    //         }
+    //         else{
+    //             setReviewStar(reviewStar + `<BsStar className="text-warning"/>`);
+    //         }
+    //         n -= 1;
+    //     }
+    //     console.log(reviewStar);
+    // }
+    
     return(
         <Fragment>
-            <div className="card w-auto cursor" >
+            <div className="card w-auto cursor" key={key}>
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-12 col-6">
@@ -25,11 +43,13 @@ const AppCard = (props) =>{
                             <div className="row">
                                 <div className="previous-app-text-md">
                                     <p className="small-text mt-2">
+                                        {/* {printReviewStar(starCount)} */}
+                                        {/* {reviewStar} */}
+                                        {/* <BsStarFill className="text-warning"/>
                                         <BsStarFill className="text-warning"/>
                                         <BsStarFill className="text-warning"/>
                                         <BsStarFill className="text-warning"/>
-                                        <BsStarFill className="text-warning"/>
-                                        <BsStarHalf className="text-warning"/>
+                                        <BsStarHalf className="text-warning"/> */}
                                         <br/>
                                         <span className="text-muted" >{reviews + " Reviews"}</span>
                                     </p>
@@ -50,11 +70,11 @@ const AppCard = (props) =>{
                     <div className="row d-none d-md-flex">
                         <div className="previous-app-text-md mx-3">
                             <p className="small-text mt-2">
+                                {/* <BsStarFill className="text-warning"/>
                                 <BsStarFill className="text-warning"/>
                                 <BsStarFill className="text-warning"/>
                                 <BsStarFill className="text-warning"/>
-                                <BsStarFill className="text-warning"/>
-                                <BsStarHalf className="text-warning"/>
+                                <BsStarHalf className="text-warning"/> */}
                                 <br/>
                                 <span className="text-muted" >{reviews + " Reviews"}</span>
                             </p>
@@ -62,6 +82,7 @@ const AppCard = (props) =>{
                     </div>
                 </div>
             </div>
+            
         </Fragment>
     );
 }

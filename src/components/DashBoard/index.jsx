@@ -36,7 +36,7 @@ const Dashboard = () => {
                                     return(
                                         <div className="col-sm-4 mb-4">
                                             <Link to={`/appDetails`}>
-                                                <AppCard key={val.key} title={val.fields.Title.stringValue} subtitle={val.fields.subtitle.stringValue} stars={val.fields.star.stringValue} reviews={val.fields.star.stringValue}/>
+                                                <AppCard key={val.key} title={val.fields.Title.stringValue} subtitle={val.fields.subtitle.stringValue} stars={val.fields.star.stringValue} reviews={val.fields.totalReview.stringValue}/>
                                             </Link>
                                         </div>
                                     )
