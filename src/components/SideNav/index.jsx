@@ -4,6 +4,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {FaChevronRight} from "react-icons/fa";
 import {AiOutlineDashboard} from 'react-icons/ai';
 import {MdLogout} from 'react-icons/md';
+import {FaUserTie} from 'react-icons/fa';
 import logo from '../../assets/jendamark.png';
 import { Link } from "react-router-dom";
 
@@ -50,11 +51,15 @@ const SideNav = () => {
                 </div>
                 <div className="bottom-content">
                     <li>
+                        <Link to={'/userprofile'}>
+                            <FaUserTie className="icon"/>
+                            <span className='text nav-text'>Profile</span>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to={"/login"}>
-                            <a href='#'>
                                 <MdLogout className='icon'/>
                                 <span className='text nav-text'>Logout</span>
-                            </a>
                         </Link>
                     </li>
                 </div>
