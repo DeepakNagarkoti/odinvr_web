@@ -68,19 +68,19 @@ const UserProfile = () =>{
                                 <div className="row d-flex justify-content-end ">
                                     
                                 </div>
-                                <div className="row  border-bottom mt-3">
+                                <div className="row border-bottom mt-3">
                                     <p className="text-start text-muted fw-light ">User profile</p>
-                                    <div className="col-sm-5">
+                                    <div className="col-sm-12">
                                         <p className="fw-light">Email: <span className="fw-normal">&nbsp;rachitshah@gmail.com</span></p>
                                     </div>
-                                    <div className="col-sm-3">
+                                    <div className="col-sm-12">
                                         <p className="fw-light">Gender: <span className="fw-normal">&nbsp;Male</span></p>
                                     </div>
-                                    <div className="col-sm-4">
+                                    <div className="col-sm-12">
                                         <p className="fw-light">Phone number: <span className="fw-normal">&nbsp;1234568798</span></p>
                                     </div>
                                 </div>
-                                <div className={"row border-bottom mt-3 " + disabledField}>
+                                <div className={"row border-bottom py-3 " + disabledField}>
                                     <p className="text-start text-muted fw-light ">Billing Address</p>
                                     <div className="row mx-0 mb-2">
                                         <p className="fw-light mb-2">Address line 1</p>
@@ -91,7 +91,7 @@ const UserProfile = () =>{
                                         <input className="form-control w-75" disabled id="addressLine1" value="xyz, building B "/>
                                     </div>
                                 </div>
-                                <div className={"row border-bottom mt-3 " + editField}>
+                                <div className={"row border-bottom py-3 " + editField}>
                                     <p className="text-start text-muted fw-light ">Billing Address</p>
                                     <div className="row mx-0 mb-2">
                                         <p className="fw-light mb-2">Address line 1</p>

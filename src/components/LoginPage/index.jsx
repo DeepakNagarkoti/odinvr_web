@@ -11,10 +11,12 @@ const LoginPage = () => {
   const [signupShow,setSignupShow] = useState('d-none');
 
   const changeLogin = () =>{
-    if(loginShow === ''){
-      setLoginShow('d-none');
-      setSignupShow('');
-    }
+    setLoginShow('d-none');
+    setSignupShow('');
+  }
+  const changeSignin = () =>{
+    setLoginShow('');
+    setSignupShow('d-none');
   }
   return (
     <div>
@@ -43,7 +45,7 @@ const LoginPage = () => {
               </div>
             </div>
             <a href="" className="attr">Forgot Password?</a>
-            <Link to={"/"}>
+            <Link to={"/userprofile"}>
               <button className="btn-login" type="submit">Login</button>
             </Link>
             
@@ -82,8 +84,13 @@ const LoginPage = () => {
                 <input type="password" id="password-signup" placeholder="Password" />
               </div>
             </div>
-
-            <button className="btn-login" type="submit">Register</button>
+            <Link to={'/userprofile'}>
+              <button className="btn-login" type="submit">Register</button>
+            </Link>
+            
+            <div className="row">
+              <a className="pointer attr" onClick={() => changeSignin()}>Already have an account?</a>
+            </div>
           </div>
         </div>
       </div>
