@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DashBoard />} />
+        <Route path="/" element={<UserProfile />} />
         <Route path="/appdetails" element={<AppDetail/>} />
         <Route path="/login" element={<LoginPage/>} />
         {/* <Route path="homePage" element={<Homepage />} />   *** Can add more route like this example */}
