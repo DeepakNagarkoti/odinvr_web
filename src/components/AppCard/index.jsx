@@ -4,28 +4,12 @@ import './index.css';
 import '../SideNav/index.css';
 import {BsStarFill, BsStarHalf, BsStar} from 'react-icons/bs';
 import imgLogo from '../../assets/Screenshot.png';
+import RatingStar from "../RatingStar";
 
 const AppCard = (props) =>{
 
     const {title,subtitle,stars,reviews,key} = props;
-    const [reviewStar,setReviewStar] = useState("");
     var starCount = parseFloat(stars);
-    //console.log(title,subtitle,starCount,reviews);
-    // const printReviewStar = (n) =>{
-    //     for(var i=0;i<5;i++){
-    //         if(n>0.5){
-    //             setReviewStar(reviewStar + `<BsStarFill className="text-warning"/>`);
-    //         }
-    //         else if(n === 0.5){
-    //             setReviewStar(reviewStar + `<BsStarHalf className="text-warning"/>`);
-    //         }
-    //         else{
-    //             setReviewStar(reviewStar + `<BsStar className="text-warning"/>`);
-    //         }
-    //         n -= 1;
-    //     }
-    //     console.log(reviewStar);
-    // }
     
     return(
         <Fragment>
@@ -43,13 +27,7 @@ const AppCard = (props) =>{
                             <div className="row">
                                 <div className="previous-app-text-md">
                                     <p className="small-text mt-2">
-                                        {/* {printReviewStar(starCount)} */}
-                                        {/* {reviewStar} */}
-                                        {/* <BsStarFill className="text-warning"/>
-                                        <BsStarFill className="text-warning"/>
-                                        <BsStarFill className="text-warning"/>
-                                        <BsStarFill className="text-warning"/>
-                                        <BsStarHalf className="text-warning"/> */}
+                                        <RatingStar starRating={starCount}/>
                                         <br/>
                                         <span className="text-muted" >{reviews + " Reviews"}</span>
                                     </p>
@@ -70,11 +48,7 @@ const AppCard = (props) =>{
                     <div className="row d-none d-md-flex">
                         <div className="previous-app-text-md mx-3">
                             <p className="small-text mt-2">
-                                {/* <BsStarFill className="text-warning"/>
-                                <BsStarFill className="text-warning"/>
-                                <BsStarFill className="text-warning"/>
-                                <BsStarFill className="text-warning"/>
-                                <BsStarHalf className="text-warning"/> */}
+                                <RatingStar starRating={starCount}/>
                                 <br/>
                                 <span className="text-muted" >{reviews + " Reviews"}</span>
                             </p>
