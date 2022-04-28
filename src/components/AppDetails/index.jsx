@@ -7,7 +7,8 @@ import SideNav from "../SideNav";
 import './index.css';
 
 const AppDetail = (props) =>{
-    console.log('props>>>>>>>>', props)
+    console.log('props>>>>>>>>', props.appData.data)
+    
     return(
         <div className="appDetailPage">
             <SideNav />
@@ -16,12 +17,20 @@ const AppDetail = (props) =>{
                     <div className="row px-0">
                         <div className="col-sm-12 col-md-12 col-lg-4 px-0 app-details-card ">
                             <div className="card h-100 bg-light">
-                                <LeftCard />
+                                <LeftCard 
+                                    name={props.appData.data.fields.Title.stringValue}
+                                    star={props.appData.data.fields.star.stringValue}
+                                    rating={props.appData.data.fields.totalReview.stringValue}
+                                />
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-8 app-right-card">
                             <div>
-                                <RightCard />
+                                <RightCard 
+                                    description={props.appData.data.fields.Description.stringValue}
+                                    star={props.appData.data.fields.star.stringValue}
+                                    publisher={props.appData.data.fields.PublishedBy.stringValue}
+                                />
                             </div>
                         </div>
                     </div>

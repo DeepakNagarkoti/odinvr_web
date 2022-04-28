@@ -2,11 +2,14 @@ import React, { Fragment } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../AppDetails/index.css';
 import ScreenshotCard from "../ScreenshotCard";
-import {AiFillStar,AiOutlineStar} from 'react-icons/ai';
+import {AiFillStar} from 'react-icons/ai';
 import {BsFillPatchCheckFill} from 'react-icons/bs';
 import {BiPackage} from 'react-icons/bi';
+import RatingStar from "../RatingStar";
 
-const RightCard = () =>{
+const RightCard = (props) =>{
+    const {description,star,publisher} = props;
+    const starCount = parseFloat(star);
     return (
         <Fragment>
             <div className="row mx-0 mb-2">
@@ -30,17 +33,7 @@ const RightCard = () =>{
                     </div>
                     <div className="card-body ">
                         <p id="description" class="right-card-text text-secondary">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices in erat
-                            vitae placerat. Donec dui odio, luctus sit amet aliquet eleifend, molestie eget 
-                            ipsum. Integer vel feugiat mauris. Aenean in metus ut tellus imperdiet pretium.
-                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
-                            per inceptos himenaeos. Fusce blandit ipsum ac malesuada facilisis. 
-                            Nam molestie quam tellus, ac lobortis ipsum hendrerit in. Integer ultricies
-                            gravida dolor sit amet varius. Fusce maximus est in ultrices commodo. Duis
-                            sit amet mi lorem. In hac habitasse platea dictumst. Praesent et ultricies
-                            risus. Morbi in vulputate metus. Ut egestas orci tellus. Cras aliquam eu 
-                            elit nec fermentum. Duis lectus lectus, accumsan quis odio a, ornare maximus 
-                            mauris. 
+                            {description}
                         </p>
                     </div>
                 </div>
@@ -55,7 +48,7 @@ const RightCard = () =>{
                     <div className="card-body">
                         <div className="row">
                             <div className="col-3 text-center">
-                                <span id="star1" className="text-dark mr-4 mt-2">4&nbsp;</span>
+                                <span id="star1" className="text-dark mr-4 mt-2">{star}&nbsp;</span>
                                 <AiFillStar className="text-warning "/>
                                 <p></p>
                             </div>
@@ -67,11 +60,7 @@ const RightCard = () =>{
                             <p className="mb-0 review-header text-dark px-0">
                                 Offline
                                 <br/>
-                                <AiFillStar className="text-warning rating-stars"/>
-                                <AiFillStar className="text-warning rating-stars"/>
-                                <AiFillStar className="text-warning rating-stars"/>
-                                <AiFillStar className="text-warning rating-stars"/>
-                                <AiOutlineStar className="text-warning rating-stars"/>
+                                <RatingStar starRating={starCount}/>
                             </p>
                             <p className="small-text px-0 text-secondary">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores error 
@@ -118,7 +107,7 @@ const RightCard = () =>{
                                         <p className="right-card-text text-dark">
                                             Published by
                                             <br/>
-                                            <span className="small-text">rachitshah06@gmail.com</span>
+                                            <span className="small-text">{publisher}</span>
                                         </p>
                                     </div>
                                 </div>
