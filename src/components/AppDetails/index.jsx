@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
+import { connect } from "react-redux";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import LeftCard from "../LeftCard";
 import RightCard from "../RightCard";
 import SideNav from "../SideNav";
 import './index.css';
 
-const AppDetail = () =>{
+const AppDetail = (props) =>{
+    console.log('props>>>>>>>>', props)
     return(
         <div className="appDetailPage">
             <SideNav />
@@ -29,4 +31,8 @@ const AppDetail = () =>{
     );
 }
 
-export default AppDetail;
+const mapStateToProps = state => ({
+    ...state
+  });
+
+export default connect(mapStateToProps, null)(AppDetail);

@@ -1,16 +1,23 @@
-import React, { Fragment,useState } from "react";
+import React, { Fragment,useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { getappData } from "../../actions/getAppData";
+
 import './index.css';
 import SideNav from "../SideNav";
 import AppCard from "../AppCard";
 import UploadModal from "../UploadModal";
 import { Link } from "react-router-dom";
 import dummy from '../../DummyData/dummyData.json';
-const Dashboard = () => {
+const Dashboard = (props) => {
     //let match = useRouteMatch();
     const [modalShow,setModalShow] = useState(false);
     
     const modalShowCallBack = () => {
         setModalShow(false)
+    }
+
+    const linkClicked = (val) => {
+        props.getappData(val)
     }
 
     return (
@@ -35,7 +42,7 @@ const Dashboard = () => {
                                 dummy.map((val) =>{
                                     return(
                                         <div className="col-sm-4 mb-4">
-                                            <Link to={`/appDetails`}>
+                                            <Link to={`/appDetails`} onClick={() => linkClicked(val)}>
                                                 <AppCard key={val.key} title={val.fields.Title.stringValue} subtitle={val.fields.subtitle.stringValue} stars={val.fields.star.stringValue} reviews={val.fields.totalReview.stringValue}/>
                                             </Link>
                                         </div>
@@ -56,4 +63,8 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+  const mapDispatchToProps = dispatch => ({
+    getappData: (val) => dispatch(getappData(val))
+  });
+  
+export default connect(null, mapDispatchToProps)(Dashboard);
