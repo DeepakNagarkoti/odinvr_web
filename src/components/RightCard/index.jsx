@@ -98,7 +98,7 @@ const RightCard = (props) =>{
                     </div>
                     <div className="card-body">
                          <div className="row">
-                             <div className="col-4">
+                             <div className="col-6">
                                 <div className="row mx-0">
                                     <div className="col-3">
                                         <BiPackage className="text-dark"/>
