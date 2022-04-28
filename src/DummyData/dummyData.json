@@ -3,7 +3,7 @@
     "name": "projects/stimulation-6e255/databases/(default)/documents/simulations/dummy1",
     "fields": {
       "downloadLink": {
-        "stringValue": ""
+        "stringValue": "https://odinvr.s3.ap-south-1.amazonaws.com/Z1Kynw8FQv4lIiZjgSqz/CSIR.zip"
       },
       "totalReview": {
         "stringValue": "240"
@@ -43,7 +43,7 @@
     "name": "projects/stimulation-6e255/databases/(default)/documents/simulations/dummy2",
     "fields": {
       "downloadLink": {
-        "stringValue": ""
+        "stringValue": "https://odinvr.s3.ap-south-1.amazonaws.com/Z1Kynw8FQv4lIiZjgSqz/CSIR.zip"
       },
       "totalReview": {
         "stringValue": "32"
@@ -83,7 +83,7 @@
     "name": "projects/stimulation-6e255/databases/(default)/documents/simulations/dummy3",
     "fields": {
       "downloadLink": {
-        "stringValue": ""
+        "stringValue": "https://odinvr.s3.ap-south-1.amazonaws.com/Z1Kynw8FQv4lIiZjgSqz/CSIR.zip"
       },
       "totalReview": {
         "stringValue": "43"
@@ -123,7 +123,7 @@
     "name": "projects/stimulation-6e255/databases/(default)/documents/simulations/dummy4",
     "fields": {
       "downloadLink": {
-        "stringValue": ""
+        "stringValue": "https://odinvr.s3.ap-south-1.amazonaws.com/Z1Kynw8FQv4lIiZjgSqz/CSIR.zip"
       },
       "totalReview": {
         "stringValue": "3"
@@ -163,7 +163,7 @@
     "name": "projects/stimulation-6e255/databases/(default)/documents/simulations/dummy5",
     "fields": {
       "downloadLink": {
-        "stringValue": ""
+        "stringValue": "https://odinvr.s3.ap-south-1.amazonaws.com/Z1Kynw8FQv4lIiZjgSqz/CSIR.zip"
       },
       "totalReview": {
         "stringValue": "53"

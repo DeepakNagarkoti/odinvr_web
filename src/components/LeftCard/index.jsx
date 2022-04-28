@@ -5,7 +5,7 @@ import {AiFillStar} from 'react-icons/ai';
 import img from '../../assets/icon.png';
 
 const LeftCard = (props) =>{
-    //const [name,subtitle,reviews,star,downloadLink] = props;
+    const {name,subtitle,rating,star,downloadLink} = props;
     return(
         <Fragment>
             <div className="left-card">
@@ -13,11 +13,13 @@ const LeftCard = (props) =>{
                     <img src={img} alt={"image"} className="left-card-img rounded-3 shadow px-0" />
                 </div>
                 <div className="text-center mt-4">
-                    <h4 id="title" className="left-card-header text-dark">{props.name}</h4>
+                    <h4 id="title" className="left-card-header text-dark">{name}</h4>
                     <p id="subtitle" className="left-card-text"></p>
                 </div>
                 <div className="text-center mt-4">
-                    <button type="button" id="btnDownload"  className="btn app-btn">Download/Open</button>
+                    <a href={downloadLink} download>
+                        <button type="button" id="btnDownload"  className="btn app-btn">Download/Open</button>
+                    </a>
                     <p className="small-text pt-2">+ Offers in-app purchase</p>
                 </div>
                 <div className="text-center mt-4">
@@ -30,11 +32,11 @@ const LeftCard = (props) =>{
                 <div class="text-center mt-4 mb-2">
                     <div class="row d-flex justify-content-center align-items-center">
                         <div class="col-4 border-end border-secondary rounded-lg">
-                            <span id="star" className="text-black ">{props.star}</span><AiFillStar className="text-warning"/>
+                            <span id="star" className="text-black ">{star}</span><AiFillStar className="text-warning"/>
                             <p id="star-text" class="small-text">Very Good</p>
                         </div>
                         <div class="col-4 border-start border-secondary rounded-lg">
-                            <span id="totalReview">{props.rating}</span>
+                            <span id="totalReview">{rating}</span>
                             <p class="small-text">Ratings</p>
                         </div>
                     </div>

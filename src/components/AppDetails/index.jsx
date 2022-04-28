@@ -21,6 +21,7 @@ const AppDetail = (props) =>{
                                     name={props.appData.data.fields.Title.stringValue}
                                     star={props.appData.data.fields.star.stringValue}
                                     rating={props.appData.data.fields.totalReview.stringValue}
+                                    downloadLink={props.appData.data.fields.downloadLink.stringValue}
                                 />
                             </div>
                         </div>
