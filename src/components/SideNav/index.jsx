@@ -1,68 +1,71 @@
 import React, {useState} from "react";
 import './index.css';
-import { Icon } from '@iconify/react';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {FaChevronRight} from "react-icons/fa";
+import {AiOutlineDashboard} from 'react-icons/ai';
+import {MdLogout} from 'react-icons/md';
+import {FaUserTie} from 'react-icons/fa';
+import logo from '../../assets/jendamark.png';
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
-const [buttonClick, setButtonClick] = useState("true"); 
-const [navPos, setNavPos] = useState("open");
-
-const changeNavState = () => {
-    if(buttonClick == true) {
-        setNavPos("close")
-        setButtonClick(false)
-    } else {
-        setNavPos("open")
-        setButtonClick(true)
-    }
-}
-
-  return (
-    <div class="dark">
-      <nav class={`sidebar ${ navPos }`}>
-      <div>
-          <div class="image-text">
-              <span class="image">
-                  <img src="../../assets/jendamark.png" width={50} height={50} alt="" />
-              </span>
-
-              <div class="text logo-text">
-                  <span class="name">Jendamark</span>
-                  <span class="profession">VR Stimulation</span>
-              </div>
-          </div>
-          <a href="#" class="active" onClick={()=> {changeNavState()}}>
-            <Icon icon="bx:chevron-right"/>
-          </a>
-      </div>
-
-      <div class="menu-bar">
-          <div class="menu">
-
-              <ul class="menu_links">
-                  <li class="nav_link ">
-                      <a href="#" class="active">
-                            <Icon class= "home-icon" icon="bx:home-alt" />
-                          {/* <i class='bx bx-home-alt icon' ></i> */}
-                          <span class="text nav-text">Dashboard</span>
-                      </a>
-                  </li>
-
-              </ul>
-          </div>
-
-          <div class="bottom-content">
-              <li class="">
-                  <a href="#">
-                      <i class='bx bx-log-out icon' ></i>
-                      <span class="text nav-text">Logout</span>
-                  </a>
-              </li>
-          </div>
-      </div>
-
-    </nav>
-    </div>
-  );
+    const [close,setClose] = useState("close");
+    const toggleBtn = () =>{
+        if (close === ""){
+            setClose("close");
+        } 
+        else setClose("");
+    };
+    return(
+        <nav className={'sidebar ' + close}>
+            <header>
+                <div className='image-text'>
+                    <span className='image'>
+                        <img src={logo} alt={"logo"}></img>
+                        {/* <img src="../../src/assets/jendamark.png"></img> */}
+                    </span>
+                    <div className='text logo-text'>
+                        <span className='name'>
+                            JendaMark
+                        </span>
+                        <span className='profession'>
+                            VR Application
+                        </span>
+                    </div>
+                </div>
+                <FaChevronRight className='toggle toggle-icon text-light' onClick = {() => toggleBtn()}/>
+            </header>
+            <div className='menu-bar'>
+                <div className='menu'>
+                    <ul className='menu_links'>
+                        <li className='nav_link'>
+                            <Link to={"/"}>
+                                <a className="active">
+                                    <AiOutlineDashboard className='icon'/>
+                                    <span className='text nav-text'>Dashboard</span>
+                                </a>
+                            </Link>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div className="bottom-content">
+                    <li>
+                        <Link to={'/userprofile'}>
+                            <FaUserTie className="icon"/>
+                            <span className='text nav-text'>Profile</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={"/login"}>
+                                <MdLogout className='icon'/>
+                                <span className='text nav-text'>Logout</span>
+                        </Link>
+                    </li>
+                </div>
+            </div>
+        </nav>
+    );
 }
 
 export default SideNav;
