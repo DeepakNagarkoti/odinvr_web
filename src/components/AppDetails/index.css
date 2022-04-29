@@ -432,3 +432,7 @@ body.dark .home .text{
 .appDetailPage{
 	overflow: hidden;
 }
+.slide{
+    height: 500px;
+    object-fit: cover;
+}

@@ -7,7 +7,7 @@ import SideNav from "../SideNav";
 import './index.css';
 
 const AppDetail = (props) =>{
-    console.log('props>>>>>>>>', props.appData.data)
+    console.log('props>>>>>>>>', props.appData.data.fields.Title);
     
     return(
         <div className="appDetailPage">
