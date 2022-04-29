@@ -323,7 +323,7 @@ body.dark .home .text{
 }
 
 .color_hr{
-    border-top: 1px solid #cccccc;
+    border-top: 5px solid #3e3e3e;
 }
 
 .stimulation-title{
@@ -344,3 +344,6 @@ body.dark .home .text{
     }
 }
 
+.previous-stimulation-title{
+    color: #88c9e9;
+}

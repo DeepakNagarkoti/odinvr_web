@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../LoginPage/index.css';
 import vrImage from '../../assets/vr-bg.png';
-import avatar from '../../assets/avatar.svg';
+import avatar from '../../assets/avatar.png';
 import {FaUser,FaLock} from 'react-icons/fa';
 import { Link } from "react-router-dom";
 

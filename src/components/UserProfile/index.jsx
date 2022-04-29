@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {FaUserEdit,FaBan,FaCheck} from 'react-icons/fa';
 import {GiRoundStar} from 'react-icons/gi';
-import avatar from '../../assets/avatar.svg';
+import avatar from '../../assets/avatar.png';
 import '../DashBoard/index.css';
 import SideNav from "../SideNav";
 
@@ -57,7 +57,7 @@ const UserProfile = () =>{
                                         <GiRoundStar className="text-warning"/>
                                         &nbsp;21 ratings
                                     </p>
-                                    <button className="btn btn-primary w-50" onClick={() => editBtnHandler()}>
+                                    <button className="btn app-btn w-50" onClick={() => editBtnHandler()}>
                                         <FaUserEdit/>
                                         &nbsp;
                                         Edit Info
@@ -104,13 +104,13 @@ const UserProfile = () =>{
                                 </div>
                                 <div className={"row border-bottom mx-0 mt-3 " + display}>
                                     <div className="col-sm-6 pb-3">
-                                        <button className="btn btn-danger w-100" onClick={() => cancelBtnHandler()}>
+                                        <button className="btn btn-secondary w-100" onClick={() => cancelBtnHandler()}>
                                             <FaBan/>
                                             &nbsp;&nbsp;Cancel
                                         </button>
                                     </div>
                                     <div className="col-sm-6 pb-3">
-                                        <button className="btn btn-success w-100" onClick={() => saveBtnHandler()}>
+                                        <button className="btn app-btn w-100" onClick={() => saveBtnHandler()}>
                                             <FaCheck />
                                             &nbsp;&nbsp;Save
                                         </button>

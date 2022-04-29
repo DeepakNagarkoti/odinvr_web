@@ -34,7 +34,7 @@ const Dashboard = (props) => {
                             </div>
                         </div>
                         <div className="row px-4">
-                            <button className="btn btn-primary w-25" onClick={ () => setModalShow(true)}>Upload</button> 
+                            <button className="btn app-btn w-25" onClick={ () => setModalShow(true)}>Upload</button> 
                         </div>
                         <div className="row previous-app mx-0 mt-4">
                             {
