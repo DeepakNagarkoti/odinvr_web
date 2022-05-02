@@ -99,7 +99,7 @@ const UploadModal = (props) =>{
         <Modal.Footer>
             <button className="btn btn-secondary" type="button" data-bs-dismiss="modal" onClick={modalShowCallBack}>Close</button>
             {/* <button type="submit" className="btn btn-primary" onClick={modalShowCallBack}>Save </button> */}
-            <button type="submit" className="btn btn-primary" onClick={formSubmission} >Save </button>
+            <button type="submit" className="btn app-btn" onClick={formSubmission} >Save </button>
         </Modal.Footer>
     </Modal>
     );
