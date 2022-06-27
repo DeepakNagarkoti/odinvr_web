@@ -8,9 +8,12 @@ import AppCard from "../AppCard";
 import UploadModal from "../UploadModal";
 import { Link } from "react-router-dom";
 import dummy from '../../DummyData/dummyData.json';
+import axios from "axios";
+import { URL_BASENAME } from "../../config/constant";
 const Dashboard = (props) => {
     //let match = useRouteMatch();
     const [modalShow,setModalShow] = useState(false);
+    const [simData,setSimData] = useState([]);
     
     const modalShowCallBack = () => {
         setModalShow(false)
@@ -19,6 +22,25 @@ const Dashboard = (props) => {
     const linkClicked = (val) => {
         props.getappData(val)
     }
+
+    const fetchSimApi = async() =>{
+        try{
+            await axios.get(`${URL_BASENAME}getSim`).then(
+                res =>{
+                    var data = res.data;
+                    console.log("DATA>>>",data);
+                    setSimData(data);
+                }
+            )
+        }
+        catch(err){
+            throw err;
+        }
+    }
+
+    useEffect(()=>{
+        fetchSimApi();
+    },[]);
 
     return (
         <Fragment>
@@ -39,11 +61,11 @@ const Dashboard = (props) => {
                         <div className="row previous-app mx-0 mt-4">
                             {
 
-                                dummy.map((val) =>{
+                                simData.map((val,index) =>{
                                     return(
-                                        <div className="col-sm-4 mb-4">
+                                        <div key={index} className="col-sm-4 mb-4">
                                             <Link to={`/appDetails`} onClick={() => linkClicked(val)}>
-                                                <AppCard key={val.key} title={val.fields.Title.stringValue} subtitle={val.fields.subtitle.stringValue} stars={val.fields.star.stringValue} reviews={val.fields.totalReview.stringValue}/>
+                                                <AppCard title={val.Title} subtitle={val.subtitle} stars={val.star.toString()} reviews={val.totalReview}/>
                                             </Link>
                                         </div>
                                     )

@@ -1,0 +1,1 @@
+module.exports.URL_BASENAME = 'http://odinvr-backend.herokuapp.com/'

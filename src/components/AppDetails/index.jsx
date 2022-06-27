@@ -7,7 +7,7 @@ import SideNav from "../SideNav";
 import './index.css';
 
 const AppDetail = (props) =>{
-    console.log('props>>>>>>>>', props.appData.data.fields.Title);
+    console.log('props>>>>>>>>', props.appData.data);
     
     return(
         <div className="appDetailPage">
@@ -18,19 +18,19 @@ const AppDetail = (props) =>{
                         <div className="col-sm-12 col-md-12 col-lg-4 px-0 app-details-card ">
                             <div className="card h-100 bg-light">
                                 <LeftCard 
-                                    name={props.appData.data.fields.Title.stringValue}
-                                    star={props.appData.data.fields.star.stringValue}
-                                    rating={props.appData.data.fields.totalReview.stringValue}
-                                    downloadLink={props.appData.data.fields.downloadLink.stringValue}
+                                    name={props.appData.data.Title}
+                                    star={props.appData.data.star}
+                                    rating={props.appData.data.totalReview}
+                                    downloadLink={props.appData.data.downloadLink}
                                 />
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-8 app-right-card">
                             <div>
                                 <RightCard 
-                                    description={props.appData.data.fields.Description.stringValue}
-                                    star={props.appData.data.fields.star.stringValue}
-                                    publisher={props.appData.data.fields.PublishedBy.stringValue}
+                                    description={props.appData.data.Description}
+                                    star={props.appData.data.star}
+                                    publisher={props.appData.data.PublishedBy}
                                 />
                             </div>
                         </div>
