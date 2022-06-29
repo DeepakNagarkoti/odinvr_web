@@ -8,12 +8,12 @@ import RatingStar from "../RatingStar";
 
 const AppCard = (props) =>{
 
-    const {title,subtitle,stars,reviews,key} = props;
+    const {title,subtitle,stars,reviews} = props;
     var starCount = parseFloat(stars);
     
     return(
         <Fragment>
-            <div className="card w-auto cursor" key={key}>
+            <div className="card w-auto cursor" >
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-12 col-6">
