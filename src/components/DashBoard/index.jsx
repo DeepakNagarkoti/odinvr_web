@@ -14,6 +14,7 @@ const Dashboard = (props) => {
     //let match = useRouteMatch();
     const [modalShow,setModalShow] = useState(false);
     const [simData,setSimData] = useState([]);
+    const downloadLink = "https://odinvr-sim-data.s3.eu-west-2.amazonaws.com/App/JendaMark-Sim+(5).exe";
     
     const modalShowCallBack = () => {
         setModalShow(false)
@@ -60,7 +61,9 @@ const Dashboard = (props) => {
                                 <button className="btn app-btn w-75" onClick={ () => setModalShow(true)}>Upload</button> 
                             </div>
                             <div className="col-sm-4">
-                                <button className="btn app-btn w-75">Download App</button> 
+                                <a href={downloadLink} download>
+                                    <button className="btn app-btn w-75">Download App</button> 
+                                </a>
                             </div>
                             
                         </div>
