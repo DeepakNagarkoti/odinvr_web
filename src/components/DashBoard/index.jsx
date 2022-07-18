@@ -55,8 +55,14 @@ const Dashboard = (props) => {
                                 <h5>In Store</h5>
                             </div>
                         </div>
-                        <div className="row px-4">
-                            <button className="btn app-btn w-25" onClick={ () => setModalShow(true)}>Upload</button> 
+                        <div className="row mx-0">
+                            <div className="col-sm-4">
+                                <button className="btn app-btn w-75" onClick={ () => setModalShow(true)}>Upload</button> 
+                            </div>
+                            <div className="col-sm-4">
+                                <button className="btn app-btn w-75">Download App</button> 
+                            </div>
+                            
                         </div>
                         <div className="row previous-app mx-0 mt-4">
                             {
