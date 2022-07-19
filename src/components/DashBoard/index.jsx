@@ -10,8 +10,10 @@ import { Link } from "react-router-dom";
 import dummy from '../../DummyData/dummyData.json';
 import axios from "axios";
 import { URL_BASENAME } from "../../config/constant";
+
 const Dashboard = (props) => {
     //let match = useRouteMatch();
+    const {role:{ role }} = props;
     const [modalShow,setModalShow] = useState(false);
     const [simData,setSimData] = useState([]);
     const downloadLink = "https://odinvr-sim-data.s3.eu-west-2.amazonaws.com/App/JendaMark-Sim+(5).exe";
@@ -41,6 +43,7 @@ const Dashboard = (props) => {
 
     useEffect(()=>{
         fetchSimApi();
+        //console.log("setRole>>>>",role);
     },[]);
 
     return (
@@ -57,9 +60,12 @@ const Dashboard = (props) => {
                             </div>
                         </div>
                         <div className="row mx-0">
-                            <div className="col-sm-4">
-                                <button className="btn app-btn w-75" onClick={ () => setModalShow(true)}>Upload</button> 
-                            </div>
+                            {
+                                role !== 'admin' &&
+                                <div className="col-sm-4">
+                                    <button className="btn app-btn w-75" onClick={ () => setModalShow(true)}>Upload</button> 
+                                </div>
+                            }
                             <div className="col-sm-4">
                                 <a href={downloadLink} download>
                                     <button className="btn app-btn w-75">Download App</button> 
@@ -94,8 +100,11 @@ const Dashboard = (props) => {
     );
 }
 
-  const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
     getappData: (val) => dispatch(getappData(val))
-  });
+});
+const mapStateToProps = state => ({
+    ...state
+});
   
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

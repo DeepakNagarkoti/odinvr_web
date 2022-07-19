@@ -3,12 +3,20 @@ import '../LoginPage/index.css';
 import vrImage from '../../assets/vr-bg.png';
 import avatar from '../../assets/avatar.png';
 import {FaUser,FaLock} from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { URL_BASENAME } from "../../config/constant";
+import { connect } from "react-redux";
+import { setRole } from "../../actions/setRole";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
 
   const [loginShow,setLoginShow] = useState('');
   const [signupShow,setSignupShow] = useState('d-none');
+  const [username,setUsername] = useState('');
+  const [password,setPassword] = useState('');
+  const [token,setToken] = useState('');
+  const navigate = useNavigate();
 
   const changeLogin = () =>{
     setLoginShow('d-none');
@@ -18,6 +26,52 @@ const LoginPage = () => {
     setLoginShow('');
     setSignupShow('d-none');
   }
+
+  const LoginApi = async() =>{
+    var token ='';
+    var orgId ='';
+    try{
+      await axios.post(`${URL_BASENAME}login`,{
+        "username" : username,
+        "password" : password
+      }).then( res =>{
+        var data = res.data;
+        console.log("response>>>>",data);
+        token = data.token;
+        orgId = data.orgId;
+        getRoleApi(token,orgId);
+      })
+    }
+    catch(err){
+      throw err;
+    }
+  }
+
+  const getRoleApi = async(token,orgId) =>{
+    const header = {
+      "Authorization" : `Bearer ${token}`
+    }
+    try{
+      await axios.post(`${URL_BASENAME}getRole?productId=d8af41d7-fdc1-11ec-b349-0691d84ddaac`,{
+          "orgId" : orgId
+      },{headers : header}
+      ).then(res =>{
+        var data = res.data;
+        console.log("Response from Role>>>>>",data.role.toLowerCase());
+        props.setRole(data.role.toLowerCase());
+      }).then(
+        navigate('/')
+      )
+    }
+    catch(err){
+      throw err;
+    }
+  }
+
+  const submitHandler = () =>{
+    LoginApi();
+  }
+  
   return (
     <div>
       <div className="content">
@@ -36,7 +90,9 @@ const LoginPage = () => {
                 <input 
                   type="email" 
                   id="email" 
-                  placeholder="Username" 
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e)=>setUsername(e.target.value)}
                 />
               </div>
             </div>
@@ -48,14 +104,14 @@ const LoginPage = () => {
                 <input 
                   type="password" 
                   id="password" 
-                  placeholder="Password" 
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e)=>{setPassword(e.target.value)}}
                 />
               </div>
             </div>
             <a href="" className="attr">Forgot Password?</a>
-            <Link to={"/userprofile"}>
-              <button className="btn-login" type="submit">Login</button>
-            </Link>
+            <button className="btn-login" type="submit" onClick={()=>submitHandler()}>Login</button>
             
             <div className="row">
               <a className="pointer attr" onClick={() => changeLogin()}>Sign up now</a>
@@ -118,5 +174,7 @@ const LoginPage = () => {
     </div>
   );
 }
-
-export default LoginPage;
+const mapDispatchToProps = dispatch =>({
+  setRole: (val) => dispatch(setRole(val))
+})
+export default connect(null,mapDispatchToProps)(LoginPage);
