@@ -10,13 +10,10 @@ import { Link } from "react-router-dom";
 import dummy from '../../DummyData/dummyData.json';
 import axios from "axios";
 import { URL_BASENAME } from "../../config/constant";
-
 const Dashboard = (props) => {
     //let match = useRouteMatch();
-    const {role:{ role }} = props;
     const [modalShow,setModalShow] = useState(false);
     const [simData,setSimData] = useState([]);
-    const downloadLink = "https://odinvr-sim-data.s3.eu-west-2.amazonaws.com/App/JendaMark-Sim+(5).exe";
     
     const modalShowCallBack = () => {
         setModalShow(false)
@@ -28,7 +25,7 @@ const Dashboard = (props) => {
 
     const fetchSimApi = async() =>{
         try{
-            await axios.get(`${URL_BASENAME}getSim`).then(
+            await axios.get(`${URL_BASENAME}getSimulations`).then(
                 res =>{
                     var data = res.data;
                     console.log("DATA>>>",data);
@@ -43,7 +40,6 @@ const Dashboard = (props) => {
 
     useEffect(()=>{
         fetchSimApi();
-        //console.log("setRole>>>>",role);
     },[]);
 
     return (
@@ -59,19 +55,8 @@ const Dashboard = (props) => {
                                 <h5>In Store</h5>
                             </div>
                         </div>
-                        <div className="row mx-0">
-                            {
-                                role !== 'admin' &&
-                                <div className="col-sm-4">
-                                    <button className="btn app-btn w-75" onClick={ () => setModalShow(true)}>Upload</button> 
-                                </div>
-                            }
-                            <div className="col-sm-4">
-                                <a href={downloadLink} download>
-                                    <button className="btn app-btn w-75">Download App</button> 
-                                </a>
-                            </div>
-                            
+                        <div className="row px-4">
+                            <button className="btn app-btn w-25" onClick={ () => setModalShow(true)}>Upload</button> 
                         </div>
                         <div className="row previous-app mx-0 mt-4">
                             {
@@ -80,7 +65,7 @@ const Dashboard = (props) => {
                                     return(
                                         <div key={index} className="col-sm-4 mb-4">
                                             <Link to={`/appDetails`} onClick={() => linkClicked(val)}>
-                                                <AppCard title={val.Title} subtitle={val.subtitle} stars={val.star.toString()} reviews={val.totalReview}/>
+                                                <AppCard title={val.Name} subtitle={val.subtitle} stars={val.Rating} reviews={val.totalReviews}/>
                                             </Link>
                                         </div>
                                     )
@@ -100,11 +85,8 @@ const Dashboard = (props) => {
     );
 }
 
-const mapDispatchToProps = dispatch => ({
+  const mapDispatchToProps = dispatch => ({
     getappData: (val) => dispatch(getappData(val))
-});
-const mapStateToProps = state => ({
-    ...state
-});
+  });
   
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(Dashboard);

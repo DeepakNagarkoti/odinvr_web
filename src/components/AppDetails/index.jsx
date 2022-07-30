@@ -8,7 +8,6 @@ import './index.css';
 
 const AppDetail = (props) =>{
     console.log('props>>>>>>>>', props.appData.data);
-    
     return(
         <div className="appDetailPage">
             <SideNav />
@@ -18,10 +17,10 @@ const AppDetail = (props) =>{
                         <div className="col-sm-12 col-md-12 col-lg-4 px-0 app-details-card ">
                             <div className="card h-100 bg-light">
                                 <LeftCard 
-                                    name={props.appData.data.Title}
-                                    star={props.appData.data.star}
-                                    rating={props.appData.data.totalReview}
-                                    downloadLink={props.appData.data.downloadLink}
+                                    name={props.appData.data.Name}
+                                    star={props.appData.data.Rating}
+                                    rating={props.appData.data.totalReviews}
+                                    downloadLink={props.appData.data.Url}
                                 />
                             </div>
                         </div>
@@ -29,7 +28,7 @@ const AppDetail = (props) =>{
                             <div>
                                 <RightCard 
                                     description={props.appData.data.Description}
-                                    star={props.appData.data.star}
+                                    star={props.appData.data.Rating}
                                     publisher={props.appData.data.PublishedBy}
                                 />
                             </div>

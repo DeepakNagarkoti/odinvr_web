@@ -5,6 +5,7 @@ import {AiFillStar} from 'react-icons/ai';
 import img from '../../assets/icon.png';
 
 const LeftCard = (props) =>{
+    console.log("PROPS>>>>>>>>",props)
     const {name,subtitle,rating,star,downloadLink} = props;
     return(
         <Fragment>
@@ -29,15 +30,15 @@ const LeftCard = (props) =>{
                         this extension for windows 10/11
                     </p>
                 </div>
-                <div class="text-center mt-4 mb-2">
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-4 border-end border-secondary rounded-lg">
+                <div className="text-center mt-4 mb-2">
+                    <div className="row d-flex justify-content-center align-items-center">
+                        <div className="col-4 border-end border-secondary rounded-lg">
                             <span id="star" className="text-black ">{star}</span><AiFillStar className="text-warning"/>
-                            <p id="star-text" class="small-text">Very Good</p>
+                            <p id="star-text" className="small-text">Very Good</p>
                         </div>
-                        <div class="col-4 border-start border-secondary rounded-lg">
+                        <div className="col-4 border-start border-secondary rounded-lg">
                             <span id="totalReview">{rating}</span>
-                            <p class="small-text">Ratings</p>
+                            <p className="small-text">Ratings</p>
                         </div>
                     </div>
                 </div>

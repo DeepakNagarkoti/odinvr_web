@@ -32,7 +32,7 @@ const RightCard = (props) =>{
                         </p>
                     </div>
                     <div className="card-body ">
-                        <p id="description" class="right-card-text text-secondary">
+                        <p id="description" className="right-card-text text-secondary">
                             {description}
                         </p>
                     </div>
