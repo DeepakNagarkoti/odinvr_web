@@ -17,6 +17,7 @@ const AppDetail = (props) =>{
                         <div className="col-sm-12 col-md-12 col-lg-4 px-0 app-details-card ">
                             <div className="card h-100 bg-light">
                                 <LeftCard 
+                                    id={props.appData.data.id}
                                     name={props.appData.data.Name}
                                     star={props.appData.data.Rating}
                                     rating={props.appData.data.totalReviews}

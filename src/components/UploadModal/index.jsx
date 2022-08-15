@@ -11,6 +11,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from "react";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 Buffer.from("anything", "base64");
 window.Buffer = window.Buffer || require("buffer").Buffer;
@@ -26,6 +27,8 @@ const UploadModal = (props) =>{
     
     const guid = uuidv4();
     const date = new Date();
+
+    let navigate = useNavigate();
 
     const {
         value: enteredTitle,
@@ -75,6 +78,7 @@ const UploadModal = (props) =>{
         setDescriptionErrorShow('d-none');
         setType("")
         modalShowCallBack();
+        navigate('/');
     }
 
     function handleChange(event) {
