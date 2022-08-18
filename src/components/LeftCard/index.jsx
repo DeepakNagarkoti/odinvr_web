@@ -3,9 +3,29 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../AppDetails/index.css';
 import {AiFillStar} from 'react-icons/ai';
 import img from '../../assets/icon.png';
+import { connect } from "react-redux";
+import axios from "axios";
+import { URL_BASENAME } from "../../config/constant";
+import { useNavigate } from "react-router-dom";
 
 const LeftCard = (props) =>{
-    const {name,subtitle,rating,star,downloadLink} = props;
+    console.log("PROPS>>>>>>>>",props)
+    const {id,name,subtitle,rating,star,downloadLink,role:{role}} = props;
+    let navigate = useNavigate();
+
+    const deleteHandler = async() =>{
+        try{
+            await axios.post(`${URL_BASENAME}deleteSim?id=${id}`)
+                    .then(res=>{
+                        var data = res.data;
+                        console.log("Status>>>>",data);
+                    }).then(navigate('/'));
+        }
+        catch(err){
+            throw err;
+        }
+    }
+
     return(
         <Fragment>
             <div className="left-card">
@@ -22,6 +42,15 @@ const LeftCard = (props) =>{
                     </a>
                     <p className="small-text pt-2">+ Offers in-app purchase</p>
                 </div>
+                {
+                    role === "admin" &&
+                    <div className="text-center">
+                        <button type="button" id="btnDownload" onClick={()=>deleteHandler()} className="btn app-btn">Delete</button>
+                    </div>
+                }         
+                {/* <div className="text-center">
+                    <button type="button" id="btnDownload" onClick={()=>deleteHandler()} className="btn app-btn">Delete</button>
+                </div>        */}
                 <div className="text-center mt-4">
                     <p className="small-text">
                         Play specified types of media with
@@ -29,15 +58,15 @@ const LeftCard = (props) =>{
                         this extension for windows 10/11
                     </p>
                 </div>
-                <div class="text-center mt-4 mb-2">
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-4 border-end border-secondary rounded-lg">
+                <div className="text-center mt-4 mb-2">
+                    <div className="row d-flex justify-content-center align-items-center">
+                        <div className="col-4 border-end border-secondary rounded-lg">
                             <span id="star" className="text-black ">{star}</span><AiFillStar className="text-warning"/>
-                            <p id="star-text" class="small-text">Very Good</p>
+                            <p id="star-text" className="small-text">Very Good</p>
                         </div>
-                        <div class="col-4 border-start border-secondary rounded-lg">
+                        <div className="col-4 border-start border-secondary rounded-lg">
                             <span id="totalReview">{rating}</span>
-                            <p class="small-text">Ratings</p>
+                            <p className="small-text">Ratings</p>
                         </div>
                     </div>
                 </div>
@@ -45,5 +74,8 @@ const LeftCard = (props) =>{
         </Fragment>
     );
 }
+const mapStateToProps = state => ({
+    ...state
+});
 
-export default LeftCard;
+export default connect(mapStateToProps,null)(LeftCard);

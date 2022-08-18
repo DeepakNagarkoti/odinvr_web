@@ -25,7 +25,7 @@ const Dashboard = (props) => {
 
     const fetchSimApi = async() =>{
         try{
-            await axios.get(`${URL_BASENAME}getSim`).then(
+            await axios.get(`${URL_BASENAME}getSimulations`).then(
                 res =>{
                     var data = res.data;
                     console.log("DATA>>>",data);
@@ -65,7 +65,7 @@ const Dashboard = (props) => {
                                     return(
                                         <div key={index} className="col-sm-4 mb-4">
                                             <Link to={`/appDetails`} onClick={() => linkClicked(val)}>
-                                                <AppCard title={val.Title} subtitle={val.subtitle} stars={val.star.toString()} reviews={val.totalReview}/>
+                                                <AppCard title={val.Name} subtitle={val.subtitle} stars={val.Rating} reviews={val.totalReviews}/>
                                             </Link>
                                         </div>
                                     )
